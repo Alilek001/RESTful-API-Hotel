@@ -70,7 +70,6 @@ if ($metodo === 'GET') {
 // ==================== POST ====================
 } elseif ($metodo === 'POST') {
 
-    verificarToken($pdo);
     $usuario_id = verificarToken($pdo);
 
     $datos = json_decode(file_get_contents('php://input'), true);
