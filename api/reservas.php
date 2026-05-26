@@ -11,12 +11,10 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // --- Función para verificar el token ---
 function verificarToken($pdo) {
-    // Apache a veces no pasa HTTP_AUTHORIZATION a PHP, usamos getallheaders() como alternativa
     $cabecera = $_SERVER['HTTP_AUTHORIZATION']
              ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION']
              ?? (getallheaders()['Authorization'] ?? '');
 
-    // Esperamos "Bearer <token>"
     if (!str_starts_with($cabecera, 'Bearer ')) {
         http_response_code(401);
         echo json_encode(['error' => 'Token requerido']);
@@ -41,7 +39,6 @@ function verificarToken($pdo) {
 if ($metodo === 'GET') {
 
     if (isset($_GET['id'])) {
-        // GET /api/reservas.php?id=X → una reserva
         $stmt = $pdo->prepare('
             SELECT r.*, h.numero, h.tipo, h.precio
             FROM reservas r
@@ -59,7 +56,6 @@ if ($metodo === 'GET') {
         }
 
     } else {
-        // GET /api/reservas.php → todas las reservas
         $stmt = $pdo->query('
             SELECT r.*, h.numero, h.tipo, h.precio
             FROM reservas r
@@ -89,7 +85,6 @@ if ($metodo === 'GET') {
         exit;
     }
 
-    // Comprobar que la habitación existe
     $stmt = $pdo->prepare('SELECT id FROM habitaciones WHERE id = ?');
     $stmt->execute([$habitacion_id]);
     if (!$stmt->fetch()) {

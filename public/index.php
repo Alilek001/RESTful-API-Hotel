@@ -29,7 +29,7 @@ $pendientes        = count(array_filter($reservas, fn($r) => $r['estado'] === 'p
 
     <header>
         <div class="header-inner">
-            <h1>🏨 Grand Hotel API</h1>
+            <h1>Grand Hotel API</h1>
             <nav>
                 <a href="index.php" class="activo">Reservas</a>
                 <a href="disponibilidad.php">Disponibilidad</a>
@@ -103,9 +103,6 @@ $pendientes        = count(array_filter($reservas, fn($r) => $r['estado'] === 'p
 
     </main>
 
-    <footer>
-        <p>Grand Hotel API &copy; <?= date('Y') ?> — Desarrollado con PHP + PDO + MariaDB</p>
-    </footer>
 
 </body>
 </html>

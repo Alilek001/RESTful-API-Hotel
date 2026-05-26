@@ -44,7 +44,7 @@ if ($fecha_entrada && $fecha_salida) {
 
     <header>
         <div class="header-inner">
-            <h1>🏨 Grand Hotel API</h1>
+            <h1>Grand Hotel API</h1>
             <nav>
                 <a href="index.php">Reservas</a>
                 <a href="disponibilidad.php" class="activo">Disponibilidad</a>
@@ -133,9 +133,6 @@ if ($fecha_entrada && $fecha_salida) {
 
     </main>
 
-    <footer>
-        <p>Grand Hotel API &copy; <?= date('Y') ?> — Desarrollado con PHP + PDO + MariaDB</p>
-    </footer>
 
 </body>
 </html>
