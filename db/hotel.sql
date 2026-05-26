@@ -38,7 +38,7 @@ CREATE TABLE reservas (
 
 -- Usuario de prueba: password = "1234"
 INSERT INTO usuarios (nombre, email, password) VALUES
-('Admin Hotel', 'admin@hotel.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('Admin Hotel', 'admin@hotel.com', '$2y$12$otwP7O7NZpGDSeWqlrn2h.Zb7bNYVQNG7nv3NhV4jDiipP7fSjPgO'); -- password: 1234
 
 -- Habitaciones de ejemplo
 INSERT INTO habitaciones (numero, tipo, precio, descripcion) VALUES
