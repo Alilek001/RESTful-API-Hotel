@@ -11,7 +11,10 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 
 // --- Función para verificar el token ---
 function verificarToken($pdo) {
-    $cabecera = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+    // Apache a veces no pasa HTTP_AUTHORIZATION a PHP, usamos getallheaders() como alternativa
+    $cabecera = $_SERVER['HTTP_AUTHORIZATION']
+             ?? $_SERVER['REDIRECT_HTTP_AUTHORIZATION']
+             ?? (getallheaders()['Authorization'] ?? '');
 
     // Esperamos "Bearer <token>"
     if (!str_starts_with($cabecera, 'Bearer ')) {
